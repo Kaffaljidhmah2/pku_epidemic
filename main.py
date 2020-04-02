@@ -1,6 +1,5 @@
 import requests
 import json
-import urllib
 import datetime
 
 ###############################
@@ -22,8 +21,6 @@ heath_status = "健康" # 疫情诊断
 ### 如北京市海淀区 身份证号码前六位 为 110108
 ### 则省编号 = "11"， 市编号 = "01" 区编号 = "08".
 
-addr = "" # 当前所在地地址（不在校则需填写）
-
 
 mydata = {
     "xh": sid, # 学号 （无需手动填写）
@@ -38,7 +35,7 @@ mydata = {
     "sfcx": "" , # 是否出校 (y/n)
 
     # 不在校需填写：
-    "dqszdxxdz": urllib.parse.quote(addr), # 当前所在地详细地址，在前面写
+    "dqszdxxdz": "", # 当前所在地详细地址
     "dqszdsm": "", # 当前所在地省编号
     "dqszddjsm": "", # 当前所在地市编号
     "dqszdxjsm": "", # 当前所在地区编号
@@ -55,7 +52,7 @@ mydata = {
     "jqxdgj": "", # 行动轨迹
     "qtqksm": "", # 其他情况说明
     "tbrq": datetime.datetime.now().strftime("%Y%m%d"), # 填报日期，自动生成
-    "yqzd": urllib.parse.quote(heath_status), #疫情诊断
+    "yqzd": heath_status, #疫情诊断
     
     # 下面的不知道有什么用
 
